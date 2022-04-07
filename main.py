@@ -36,14 +36,14 @@ plt.plot(his.history['loss'])
 plt.plot(his.history['val_loss'])
 plt.show()
 
+dataset_classes = {0: 'Футболка/Топ', 1: 'Брюки', 2: 'Пуловер', 3: 'Платье', 4: 'Пальто', 5: 'Сандалия',
+                       6: 'Рубашка', 7: 'Кроссовок', 8: 'Сумка', 9: 'Ботинок'}
+
 for i in range(10):
     n = np.random.randint(0, 10000)
     x = np.expand_dims(x_test[n], axis=0)
     res_ind = np.argmax(model.predict(x))
     orig_ind = np.argmax(y_test_cat[n])
-
-    dataset_classes = {0: 'Футболка/Топ', 1: 'Брюки', 2: 'Пуловер', 3: 'Платье', 4: 'Пальто', 5: 'Сандалия',
-                       6: 'Рубашка', 7: 'Кроссовок', 8: 'Сумка', 9: 'Ботинок'}
 
     print('Ожидаемое значение: ', dataset_classes[orig_ind], '\nПрогнозируемое значение: ', dataset_classes[res_ind])
 
